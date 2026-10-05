@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow,noarchive" />
+  <meta name="theme-color" content="#08110d" />
+  <title>Yönetici Paneli • NOVA BOT</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/admin/admin.css" />
+</head>
+<body>
+  <div class="admin-noise"></div>
+  <main class="admin-shell">
+    <section id="login-view" class="login-card">
+      <img src="/logo.svg" class="login-logo" alt="" width="68" height="68" />
+      <span class="eyebrow">PRIVATE ADMIN</span>
+      <h1>Yönetici girişi</h1>
+      <p>Bu alan yalnızca siparişleri yönetmek için kullanılır.</p>
+      <form id="login-form">
+        <label>Parola<input id="password" type="password" autocomplete="current-password" required placeholder="Admin parolası" /></label>
+        <button type="submit">Panele Gir <span>→</span></button>
+      </form>
+      <div id="login-message" class="message" role="alert"></div>
+      <a class="back-link" href="/">← Müşteri sitesine dön</a>
+    </section>
+
+    <section id="panel-view" class="panel-view hidden">
+      <header class="admin-header">
+        <div class="admin-brand"><img src="/logo.svg" alt="" width="45" height="45" /><div><span class="eyebrow">NOVA BOT / PRIVATE</span><h1>Sipariş merkezi</h1></div></div>
+        <div class="header-actions"><button id="export-btn" class="ghost">CSV Dışa Aktar</button><button id="refresh-btn" class="ghost">Yenile</button><button id="logout-btn" class="danger">Çıkış</button></div>
+      </header>
+
+      <div class="stats-grid">
+        <div class="stat"><span>Toplam sipariş</span><strong id="stat-total">0</strong><small>Tüm kayıtlar</small></div>
+        <div class="stat"><span>Bekleyen</span><strong id="stat-pending">0</strong><small>İşlem bekliyor</small></div>
+        <div class="stat"><span>Tamamlanan</span><strong id="stat-paid">0</strong><small>Onaylananlar</small></div>
+        <div class="stat"><span>Ciro</span><strong id="stat-revenue">€0.00</strong><small>Tamamlanan toplam</small></div>
+      </div>
+
+      <section class="orders-panel">
+        <div class="panel-top">
+          <div><span class="eyebrow">SİPARİŞLER</span><h2>Son kayıtlar</h2></div>
+          <div class="filters"><select id="status-filter"><option value="all">Tüm durumlar</option><option value="pending">Bekleyen</option><option value="paid">Tamamlanan</option><option value="cancelled">İptal</option></select><input id="search" placeholder="Ara: isim, iletişim, ürün..." /></div>
+        </div>
+        <div id="orders-list" class="orders-list"></div>
+      </section>
+      <section class="note-panel"><strong>Güvenlik:</strong> admin oturumu HttpOnly + Secure cookie kullanır. Ürün/sipariş verileri D1, ödeme kanıtları R2 üzerinden yönetilir. Bot API'si, Telegram, Discord ve webhook bağlantısı bulunmaz.</section>
+    </section>
+  </main>
+  <script src="/site-config.js"></script><script src="/admin/admin.js"></script>
+</body>
+</html>

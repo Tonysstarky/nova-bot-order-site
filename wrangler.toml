@@ -1,0 +1,11 @@
+name = "nova-bot-order-site"
+compatibility_date = "2026-10-05"
+pages_build_output_dir = "./public"
+
+# D1 + R2 binding'lerini Cloudflare Dashboard'dan ekle:
+# Pages > Proje > Settings > Bindings
+# D1 variable: DB
+# R2 variable: PROOFS
+
+# ADMIN_PASSWORD'u plaintext [vars] içine koyma.
+# Cloudflare Secret olarak ADMIN_PASSWORD = tony1984 tanımla.
